@@ -8,7 +8,7 @@ def eating_cookies(n):
         # by starting at n - 2 cookies and eating 2
         # by starting at n - 3 cookies and eating 3
     
-    # base case: invalid input
+    # base case: ate too many cookies
     if n < 0:
         return 0
     
