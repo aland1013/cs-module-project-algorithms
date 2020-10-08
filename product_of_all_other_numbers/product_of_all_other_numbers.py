@@ -17,7 +17,7 @@ def product_of_all_other_numbers(arr):
     
     # optimized solution with O(n) time complexity
     # traversing the arr three times is O(n) + O(n) + O(n)
-    # which is O(3n) which is considered O(n)
+    # which is O(3n), which is considered O(n)
     
     # for each number in arr, find the product of
     # all the numbers before it and store it in a new array
