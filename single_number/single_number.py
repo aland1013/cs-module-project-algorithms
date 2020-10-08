@@ -3,8 +3,7 @@ Input: a List of integers where every int except one shows up twice
 Returns: an integer
 '''
 def single_number(arr):
-    
-    # first pass solution
+    # first pass solution with O(n) space complexity
     # d = {arr[0]: 0}
     
     # for num in arr[1:]:
