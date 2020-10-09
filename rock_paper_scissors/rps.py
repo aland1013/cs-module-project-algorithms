@@ -1,12 +1,14 @@
 #!/usr/bin/python
 
 import sys
+from itertools import product
 
 def rock_paper_scissors(n):
-  # Your code here
-
-  pass
-
+    rounds = product(['rock', 'paper', 'scissors'], repeat=n)
+    
+    return [list(r) for r in rounds]
+       
+print(rock_paper_scissors(2))
 
 if __name__ == "__main__":
   if len(sys.argv) > 1:

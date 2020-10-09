@@ -3,10 +3,24 @@
 import sys
 
 def making_change(amount, denominations):
-  # Your code here
-
-  pass
-
+    # create a list of length amount + 1
+    ways = [0 for _ in range(amount + 1)]
+    
+    # there is 1 way to make 0 with 0 coins
+    ways[0] = 1
+    
+    # go through all coins in denominations list
+    for i in range(len(denominations)):
+        
+        # compare value of the coin with each index value in ways
+        for j in range(len(ways)):
+            
+            # if the value of the coin is less than or equal to the index value,
+            # update the ways array
+            if denominations[i] <= j:
+                ways[j] += ways[j - denominations[i]]
+    
+    return ways[-1]   
 
 if __name__ == "__main__":
   # Test our your implementation from the command line
