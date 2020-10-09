@@ -13,26 +13,41 @@ def sliding_window_max(nums, k):
     # return [max(nums[i:i + k]) for i in range(0, len(nums) - k + 1)]
 
     # optimized solution with O(n) runtime complexity
-    maxes = []
-    q = deque()   
+    maxes = [] # stores max of each window
+    q = deque() # stores indexes of integers in nums in decr order   
     
+    # process first k integers in nums
     for i in range(k):
+        
+        # for each integer, remove previous smaller
+        # integers from q
         while q and nums[i] >= nums[q[-1]]:
             q.pop()
         
+        # add new integer to end of q
         q.append(i)
     
+    # process rest of integers in nums
     for i in range(k, len(nums)):
+        
+        # integer at front of q is max int
+        # in previous in window, so add it to
+        # the list holding max of each window 
         maxes.append(nums[q[0]])
         
+        # remove integers not in this window
         while q and q[0] <= i - k:
             q.popleft()
         
+        # remove all integers smaller than
+        # the one being added
         while q and nums[i] >= nums[q[-1]]:
             q.pop()
         
+        # add current integer to the end of q
         q.append(i)
     
+    # add max integer in last window
     maxes.append(nums[q[0]])
     
     return maxes         
