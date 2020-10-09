@@ -20,9 +20,7 @@ def making_change(amount, denominations):
             if denominations[i] <= j:
                 ways[j] += ways[j - denominations[i]]
     
-    return ways[-1] 
-
-making_change(5, [1])    
+    return ways[-1]   
 
 if __name__ == "__main__":
   # Test our your implementation from the command line
